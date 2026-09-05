@@ -17,6 +17,11 @@ shared D-A tip state packing; `residuals.py` assembles the implicit system;
 
 The package has no import-time simulation, plotting, or file loading.
 
+For fixed-step runs, `success=True` means both that `fsolve` converged and
+that the final residual is at most `1e-6`; a solver status of `ier=1` alone is
+not accepted. The DCT/A-C junction is checked against the same upwind
+boundary fluxes used by the transport equations.
+
 ## Install and run
 
 ```text
@@ -35,6 +40,15 @@ For the supplied third-steady-state seed, use the final trajectory row:
 ```text
 python -m kidney_model --dynamic-file conv_to_third_ss.npy --row-index -1 --N 50 --steps 1000 --dt 0.01
 ```
+
+To screen a trajectory file and use its strongest finite collecting-duct seed:
+
+```text
+python -m kidney_model --dynamic-file dynamic_stable_v2.npy --best-seed --N 50 --steps 1000 --dt 0.01
+```
+
+The seed selector is optional. For `conv_to_third_ss.npy`, the original
+workflow remains available with `--row-index -1`.
 
 Add `--plot` to display final-state plots, or save them without opening
 windows:

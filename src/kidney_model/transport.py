@@ -32,26 +32,58 @@ def p_junction(k, alpha, c, pressure, p):
     raise ValueError("k must be KD or KA for p_junction")
 
 
+class JunctionSolveError(RuntimeError):
+    """Raised when the algebraic A-C/DCT junction cannot be solved."""
+
+
+def _dct_boundary_fluxes(y, alpha, c, pressure, p):
+    """Return A and C boundary solute fluxes using the model's actual flux law.
+
+    The A flux is signed toward the cortex and the C flux toward the papilla.
+    The junction condition is therefore ``F_C - fraction*F_A = 0``.  Upwind
+    concentrations are selected from the sign of the corresponding boundary
+    water flux, exactly as in :func:`_upwind_concentration_faces`.
+    """
+    c_s, c_u, p_ac = y
+    q_a = 2.0 * (alpha[KA, 0] ** 2 / p.rho[KA]) * (pressure[KA, 0] - p_ac) / p.dx
+    q_c = 2.0 * (alpha[KC, 0] ** 2 / p.rho[KC]) * (p_ac - pressure[KC, 0]) / p.dx
+    c_junction = np.array([c_s, c_u])
+    c_a = np.array([c[SALT, KA, 0], c[UREA, KA, 0]])
+    c_c = np.array([c[SALT, KC, 0], c[UREA, KC, 0]])
+    a_face = c_a if q_a >= 0.0 else c_junction
+    c_face = c_junction if q_c >= 0.0 else c_c
+    f_a = q_a * a_face
+    f_c = q_c * c_face + 2.0 * p.D[:, KC] * alpha[KC, 0] * (c_junction - c_c) / p.dx
+    return f_a, f_c
+
+
 def DCT_junction(y, alpha, c, pressure, p):
     c_s, c_u, p_ac = y
-    res = np.zeros(3)
-    res[0] = (
-        p.q * (alpha[KA, 0] ** 2 / p.rho[KA]) * (p_ac - pressure[KA, 0]) * c[SALT, KA, 0]
-        + (alpha[KC, 0] ** 2 / p.rho[KC]) * (p_ac - pressure[KC, 0]) * c_s
-        + alpha[KC, 0] * p.D[SALT, KC] * (c_s - c[SALT, KC, 0])
-    )
-    res[1] = (
-        (alpha[KA, 0] ** 2 / p.rho[KA]) * (p_ac - pressure[KA, 0]) * c[UREA, KA, 0]
-        + (alpha[KC, 0] ** 2 / p.rho[KC]) * (p_ac - pressure[KC, 0]) * c_u
-        + alpha[KC, 0] * p.D[UREA, KC] * (c_u - c[UREA, KC, 0])
-    )
-    res[2] = 2.0 * c_s + c_u - p.c_cortex
-    return res
+    f_a, f_c = _dct_boundary_fluxes(y, alpha, c, pressure, p)
+    return np.array([
+        f_c[SALT] - p.q * f_a[SALT],
+        f_c[UREA] - f_a[UREA],
+        2.0 * c_s + c_u - p.c_cortex,
+    ])
 
 
-def solve_DCT_junction(alpha, c, pressure, p):
+def solve_DCT_junction(alpha, c, pressure, p, *, maxfev=200, residual_tol=1e-8):
     guess = np.array([c[SALT, KC, 0], c[UREA, KC, 0], p_junction(KA, alpha, c, pressure, p)])
-    return fsolve(DCT_junction, guess, args=(alpha, c, pressure, p))
+    solution, info, ier, message = fsolve(
+        DCT_junction,
+        guess,
+        args=(alpha, c, pressure, p),
+        full_output=True,
+        xtol=1e-10,
+        maxfev=maxfev,
+    )
+    residual = DCT_junction(solution, alpha, c, pressure, p)
+    scale = max(1.0, float(np.max(np.abs(solution))))
+    if ier != 1 or not np.all(np.isfinite(solution)) or np.max(np.abs(residual)) > residual_tol * scale:
+        raise JunctionSolveError(
+            f"DCT junction failed: ier={ier}, residual={np.max(np.abs(residual)):.3e}, message={message.strip()}"
+        )
+    return solution
 
 
 def water_flow(k, alpha, c, pressure, p_ac, p: ModelParameters,

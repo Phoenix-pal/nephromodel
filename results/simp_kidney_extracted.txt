@@ -1,0 +1,775 @@
+PAGE 1
+A simple time-dependent model of kidney
+Chanoknun Sintavanuruk
+June 7, 2023
+1 Model equations
+In this model, we consider the medulla of the kidney as a multiphasic contin-
+uum consisting of luminal compartments of nephrons and a single combined
+interstitium-vessel compartment, which we will refer to as simply the intersti-
+tium. We assume that there is no variation across the medullary tissue of the
+same depth so that the model can be represented in a one-dimensional spatial
+domain (0,L ), where x = 0 is the most superficial part of the outer medulla.
+Further, we suppose that the population of nephrons is homogeneous, so that
+we have three distinct luminal compartments: the descending tubules, the as-
+cending tubules, and the collecting tubules.
+For each compartment, the occupied volume is given by the volume density
+(per unit depth) αk, as a function of space and time, where we use k to iden-
+tify the compartment; k = 0, D, A, C are for the interstitium, the descending,
+ascending, and collecting tubules respectively. By assuming the total volume of
+the medulla is constant, we have
+∑
+k
+αk =α∗ (1)
+where α∗ : (0,L ) → R+ is the total volume density of the medulla.
+The dynamics of αk are given by
+∂αk
+∂t + ∂
+∂x (αkuk) = −γkwk, k = D, A, C, (2)
+∂α0
+∂t + ∂
+∂x (α0u0) =
+∑
+k=D,A,C
+γkwk. (3)
+Here, uk is the water flow velocity, wk is the transmural flux of the water
+reabsorbed into the interstitium, and γk describes the area of the luminal wall
+per unit depth. For each compartment k, the flow velocity uk depends on the
+hydrostatic pressure pk, and is described by the Poiseuille equation:
+ρkuk
+αk
+= −∂pk
+∂x , k = 0, D, A, C, (4)
+1
+
+PAGE 2
+with ρk is a constant so that ρk/αk represents the hydraulic resistivity which
+depends on the volume density αk. The transmural fluxes wk on the right-hand
+side of ( 2) depend on the difference of both the hydrostatic pressures pk and the
+osmotic pressures πk between the luminal and the interstitial compartments.
+That is,
+wk :=ζ k
+w (ψk −ψ0), ψ k :=pk −πk, k = D, A, C (5)
+whereζ k
+w are the water permeability of the tubules, and ψk are called the ‘water
+potential’ .
+We describe the hydrostatic pressure pk by considering a mechanical prop-
+erty of the nephrons. We assume that this can be captured by the compliance
+νk, k = D, A, C, of the tubular walls, and we have
+νk(pk −p0) = αk
+¯αk
+− 1, k = D, A, C, (6)
+where ¯αk are the resting volume density for which pk = p0. Note that the
+interstitial hydrostatic pressure is determined by the volume conservation given
+by ( 1).
+The osmotic pressure πk, on the other hand, depends on the total concentra-
+tion of the solutes. In this model, for each compartment k, we will only consider
+two unknown concentrations of solute species: the salt concentration ck
+s , and
+the urea concentration ck
+u. The rest of the solute species will be treated as a
+fixed immobile solute, and we denote the total amount (per unit depth) by ak.
+We define the osmotic pressure by
+πk :=RT
+(
+2ck
+s +ck
+u + ak
+αk
+)
+, k = 0, D, A, C. (7)
+Now, similarly to the dynamics of the volume density, we have equations for
+the salt and urea concentrations:
+∂
+∂t
+(
+αkck
+i
+)
+= − ∂
+∂xf k
+i −γkgk
+i, k = D, A, C, (8)
+∂
+∂t
+(
+α0c0
+i
+)
+= − ∂
+∂xf 0
+i +
+∑
+k=D,A,C
+γkgk
+i, (9)
+where i = s, u. The axial flow and transmural flux of the solute i are denoted
+by f k
+i and gk
+i respectively. The axial flow has two components: diffusion and
+advection. We write f k
+i as
+f k
+i := −αkDk
+i
+∂ck
+i
+∂x +αkukck
+i, k = 0, D, A, C, (10)
+where Dk
+i are the diffusion coeﬀicients. For the transmural fluxes gk
+i , we have
+gk
+i :=jk
+i +hk
+i, k = D, A, C (11)
+2
+
+PAGE 3
+where jk
+i is the passive transport of the solutes, and hk
+i is the active transport.
+We assume that the passive transports take the form:
+jk
+i =ζ k
+i
+(
+µk
+i −µ0
+i
+)
+, k = D, A, C, (12)
+whereζ k
+i are the permeability of the solute i through the tubules, and µk
+i is the
+chemical potential of the solute i in the compartment k:
+µk
+i :=RT lnck
+i, k = 0, D, A, C. (13)
+Note that, since we are considering only salt and urea, we essentially eliminate
+the need to address the electrical potential, i.e., the electroneutrality condition
+requires that the movement of Na + ions must be accompanied by that of Cl –
+ions, so we can think of salt as having no charge. The active transport hk
+i repre-
+sent the transport which requires external energy. In this case, we are interested
+the molecular pump of salt from the ascending tubules into the interstitium. So,
+hA
+s is a non-negative function and hk
+i ≡ 0 for k = D, C or i = u.
+Now, we need to specify the boundary conditions. For the interstitial com-
+partment, we assume no-flux boundary at x =L, i.e.,
+u0(t,L ) = 0, (14)
+f 0
+i (t,L ) = 0, i = s, u. (15)
+On the other hand, we allow interstitial water flow and advective solute flow at
+x = 0 in the negative direction. More precisely,
+p0(t, 0) = Pv, (16)
+c0
+i (t, 0) = cv
+i (t), i = s, u, (17)
+wherePv is the pressure inside larger vessels which are coupled to the interstitial
+compartment.
+For the luminal compartments, we have solute and water input from the
+proximal tubules in the descending compartment at x = 0. Formally, we write
+(αDuD)(t, 0) = FPCT(t), (18)
+cD
+i (t, 0) = cPCT
+i (t), i = s, u, (19)
+where FPCT is a non-negative function of time, which can be given or depend
+on other model unknowns such as the pressure of the descending tubule or the
+salt concentration in the ascending tubule. We also have the concentration
+at the beginning of the descending tubule cPCT
+i given. Furthermore, we have
+couplings between the descending and ascending tubules at x =L and between
+the ascending and collecting tubules at x = 0, i.e., we have
+(αDuD +αAuA)(t,L ) = 0, (20)
+(
+f D
+i +f A
+i
+)
+(t,L ) = 0, (21)
+pD(t,L ) = pA(t,L ), (22)
+cD
+i (t,L ) = cA
+i (t,L ). (23)
+3
+
+PAGE 4
+To avoid modeling the distal convoluted tubules (DCT) and the connecting
+tubules (CNT), which join the distal end of the ascending tubules and the
+collecting tubules, we assume that the amount of urea at both ends stay the
+same while the salt content is reabsorbed by DCT and CNT by a factor of 1 −q
+where 0<q ≤ 1. Formally, we write
+(
+f A
+u +f C
+u
+)
+(t, 0) = 0, (24)
+(
+qf A
+s +f C
+s
+)
+(t, 0) = 0. (25)
+Further, we assume that
+pA(t, 0) = pC(t, 0), (26)
+f A
+i (t,L ) = (αAuAcA
+i )(t,L ), i = s, u, (27)
+(2cC
+s +cC
+u )(t, 0) = ccortex(t), (28)
+i.e., the pressure drop across and the diffusive flux into the DCT and the CNT
+are negligible, and the water is reabsorbed so that the osmolarity of the fluid at
+the initial CNT is iso-osmotic, given by ccortex.
+Finally, since the volume density of the collecting tubule is the model un-
+known, we need to specify the solute and water flow at x =L similarly to those
+in the interstitium:
+pC(t,L ) = Pp(t), (29)
+f C
+i (t,L ) = (αCuCcC
+i )(t,L ), i = s, u, (30)
+where Pp is the papillary pressure.
+2 Non-dimensionalization
+We now consider the rescaling of space and time:
+x =Lˆx, t =τ ˆt, (31)
+where τ is an advection timescale given by
+τ := L2
+¯αp∗/ρ∗
+= ρ∗L2
+¯αc∗RT. (32)
+Here, p∗ =c∗RT is a typical magnitude of hydrostatic pressures with c∗ being
+that of solute concentrations; ¯α = 1
+L
+∫ L
+0 α∗(x)dx is the average volume density;
+ρ∗ is a typical magnitude of hydraulic resistivity. With this, we rescale the
+model unknowns as follows:
+αk = ¯α ˆα, c k
+i =c∗ˆck
+i, p k =p∗ ˆpk =c∗RT ˆpk, (33)
+for k = 0, D, A, C. The dimensionless unknowns with ˆ· notation here are func-
+tions in the rescaled space and time (ˆt, ˆx).
+4
+
+PAGE 5
+We have the model equations in the dimensionless form:
+∂ ˆαk
+∂ˆt + ∂
+∂ ˆx ( ˆαk ˆuk) = − ˆwk, (34)
+∂ ˆα0
+∂ˆt + ∂
+∂ ˆx ( ˆα0 ˆu0) =
+∑
+k
+ˆwk, (35)
+ˆνk (ˆpk − ˆp0) = ˆαk
+ˆ¯αk
+− 1, (36)
+ˆα0 +
+∑
+k
+ˆαk = ˆα∗, (37)
+∂
+∂ˆt
+(
+ˆαkˆck
+i
+)
+= − ∂
+∂ ˆx
+ˆf k
+i − ˆgk
+i, (38)
+∂
+∂ˆt
+(
+ˆα0ˆc0
+i
+)
+= − ∂
+∂ ˆx
+ˆf 0
+i +
+∑
+k
+ˆgk
+i, (39)
+for k = D, A, C and i = s, u, where
+ˆu· := − ˆα·
+ˆρ·
+∂ ˆp·
+∂ ˆx = τ
+Lu·, (40)
+ˆf ·
+i := − ˆα· ˆD·
+i
+∂ˆc·
+i
+∂ ˆx + ˆα· ˆu·ˆc·
+i =τ ¯αc∗f ·
+i, (41)
+ˆwk := ˆζ k
+w
+(
+ˆψk − ˆψ0
+)
+= τγ k
+¯α wk, ˆψ· := ˆp· − ˆπ., ˆπ· := ˆa·
+ˆα·
++
+∑
+i
+ˆc·
+i, (42)
+ˆgk
+i := ˆjk
+i + ˆhk
+i = τγ k
+¯αc∗
+gk
+i, ˆjk
+i := ˆζ k
+i (ˆµk
+i − ˆµ0
+i ), ˆµ·
+i := ln ˆc·
+i (43)
+for k = D, A, C and i = s, u. The label · here is for 0, D, A, C. Note that
+we have ˆhk
+i = (γkτ / ¯αc∗)hk
+i for the dimensionless active transport ˆhk
+i . In this
+dimensionless formulation, we have identified parameters:
+ˆρ· = ρ·
+ρ∗
+, ˆνk =p∗νk, ˆ¯α· = ¯α·
+¯α, ˆα∗ = α∗
+¯α (44)
+ˆa· = a·
+¯αc∗
+, ˆD·
+i = τ
+L2D·
+i, ˆζ k
+w = γkp∗τ
+¯α ζ k
+w, ˆζ k
+i = γkp∗τ
+¯αc2∗
+ζ k
+i, (45)
+fork = D, A, C, where the subscript ∗ denotes the typical magnitudes of the pa-
+rameters described in the previous section. The mechanical parameters, which
+are the hydraulic resistivity ˆρ·, the tubular compliance ˆν·, the resting volume
+density ˆ¯α·, immobile solutes ˆa·, and the diffusion coeﬀicients ˆD· persist through
+the non-dimensionalization. The transport parameters, however, are now re-
+duced to only ˆζ k
+w and ˆζ k
+i which combine the geometric parameters γk with the
+solute and water permeability.
+The boundary conditions are of the same form as previously described, but
+with ˆ· notations, where we have
+FPCT = ¯αL
+τ
+ˆFPCT, P · =p∗ ˆP·, c ·
+i =c∗ˆc∗
+i, c cortex =c∗ˆccortex, (46)
+where the subscript · represents v and p.
+5
+
+PAGE 6
+3 Numerical method
+We now give an implicit scheme to numerically solve the dimensionless system
+(35) - ( 43) described in the previous section with ˆDk
+i = 0 fork ̸= 0. To simplify
+the notation, we will omit the ˆ· notation in these equations.
+LetN ∈ N be the number of uniformly spaced grids in (0, 1), and δx = 1/N
+be the spatial grid size. Similarly, we denote δt as the size of time steps. We
+will use the notation αn
+kl,c kn
+il ,p n
+kl for the discretization of αk,c k
+i and pk at the
+l-th spatial grid and time t = nδt. These correspond to the values in between
+the spatial grid point, e.g., αn
+kl corresponds to αk(nδt,l −δx/2).
+We define difference quotient operators:
+D+
+xyn
+l := yn
+l+1 −yn
+l
+δx , D−
+xyn
+l := yn
+l −yn
+l−1
+δx , Dtyn
+l = yn
+l −yn−1
+l
+δt , (47)
+and an average operator:
+Ayn
+l := yn
+l+1 +yn
+l
+2 , (48)
+where {yn
+l } is any discretized variables with l,n ∈ N ∪ {0}.
+Starting with known values of αn−1
+kl ,c k,n−1
+il ,p n−1
+kl ,l = 1,...,N , the first step
+is to update the unknowns for the next time step n. We have the system of
+equations for αn
+kl,c kn
+il ,p n
+kl,l = 1,...,N , to be solved using an iterative method:
+Dtαn
+kl + D−
+xvn
+kl =
+{
+−wn
+kl, k = D, A, C,∑
+κ̸=0wn
+κl, k = 0, (49)
+Dt(αn
+klckn
+il ) + D−
+xf kn
+il =
+{
+−gil
+kn, k = D, A, C,∑
+κ̸=0gκn
+il , k = 0. (50)
+pn
+kl =
+
+
+
+pn
+0l + 1
+νk
+(
+αn
+kl
+¯αkl
+− 1
+)
+, k = D, A, C,
+αn
+0l−α∗+∑
+κ̸=0 ¯ακ(νκpκ+1)∑
+κ̸=0 ¯ακνκ
+, k = 0.
+(51)
+where the transmural flux terms wn
+kl and gkn
+il are the discritization of wk and
+gk
+i on the same grid as the unknowns:
+wn
+kl :=ζ k
+w (ψn
+kl −ψn
+0l), ψ n
+·l :=pn
+·l −πn
+·l, π n
+·l :=
+∑
+i
+c·n
+il, (52)
+gkn
+il :=jkn
+il +hkn
+il , j kn
+il :=ζ k
+i
+(
+µkn
+il −µ0n
+il
+)
+, µ ·n
+il := lnc·
+il. (53)
+Here, the axial flows of water vn
+kl and solutes f kn
+il are assigned for l = 0,...,N .
+These should be thought as the flow at the grid points, e.g., f kn
+il corresponds to
+f k
+i (nδt,lδx ). For l = 1,...,N − 1, we have
+vn
+kl = − 1
+ρkl
+(Aαn
+kl)2D+
+xpn
+kl, (54)
+f kn
+il =vn
+klAckn
+il . (55)
+6
+
+PAGE 7
+Further, we have the boundary conditions ( l = 0,N ):
+vn
+00 = (αn
+01)2
+ρ00
+(Pv(nδt) −pn
+01
+δx/2
+)
+,
+f n
+00 =vn
+00cv
+i (nδt) +αn
+01D0
+i0
+(cv
+i (nδt) −c0n
+i0
+δx/2
+)
+, (56)
+vn
+0N = 0, f n
+0N = 0, (57)
+vn
+D0 =FPCT(nδt), f Dn
+i0 =vn
+D0cPCT
+i (nδt), (58)
+vn
+CN = (αn
+CN )2
+ρCN
+(pn
+CN −Pp(nδt)
+δx/2
+)
+, f Cn
+iN =vn
+CNcCn
+iN. (59)
+For the coupling between the descending and ascending, we have
+vn
+kN = (αn
+kN )2
+ρk
+(pn
+kN − ¯pn
+DA
+δx/2
+)
+, (60)
+f kn
+iN =vn
+kN ¯cn
+i,DA, (61)
+for k = D, A, where
+¯pn
+DA :=
+(αn
+DN )2
+ρD
+pn
+DN + (αn
+AN )2
+ρA
+pn
+AN
+(αn
+DN )2
+ρD
++
+(αn
+AN )2
+ρA
+, ¯cn
+i,DA := αn
+DNDD
+iNcDn
+iN +αn
+ANDA
+iNcAn
+iN
+αn
+DNDD
+iN +αn
+ANDA
+iN
+.
+(62)
+These are so that we have the coupling satisfies vn
+DN +vn
+AN = 0, andf Dn
+iN +f An
+iN =
+0. Here, ¯pn
+DA and ¯cn
+i,DA correspond to the pressures and the concentrations at
+x = 1 of the descending and the ascending tubules. Similarly, we also have a
+condition for the coupling between the ascending and the descending tubules:
+vn
+k0 = (αn
+k0)2
+ρk
+( ¯pn
+AC −pn
+k0
+δx/2
+)
+, k = A, C, (63)
+f An
+i0 =vn
+A0cAn
+i0 , i = s, u, (64)
+f Cn
+i0 =vn
+C0cCn
+i0 +αn
+C0DC
+i0
+(
+¯cn
+i,AC −cCn
+i0
+δx/2
+)
+, i = s, u, (65)
+(66)
+where ¯pn
+AC, ¯cn
+i,AC satisfy the system of equations:
+(q(αn
+A0)2cAn
+s0
+ρA
++ (αn
+C0)2cCn
+s0
+ρC
+)
+(¯pn
+AC −pn
+A0) +αn
+C0DC
+s
+(
+¯cn
+s,AC −cCn
+s0
+)
+= 0, (67)
+( (αn
+A0)2cAn
+u0
+ρA
++ (αn
+C0)2cCn
+u0
+ρC
+)
+(¯pn
+AC −pn
+A0) +αn
+C0DC
+u
+(
+¯cn
+u,AC −cCn
+u0
+)
+= 0, (68)
+2¯cn
+s,AC + ¯cn
+u,AC −ccortex(nδt) = 0. (69)
+7
+
+PAGE 8
+4 Simulation of the countercurrent mechanism
+In this simulation, we will use a simple geometry of α∗ ≡ 1, with mechanical
+parameters ¯αk = 1/4 and νk = 0.01 for k = D, A, C. We suppose that Dk
+s =
+Dk
+u = 1 , Pe = 20 , ρk = 1 for all k, and we assume that there is only immobile
+solute in the interstitium, where we have a0 = 1/2 and ak = 0 for luminal
+compartments. Furthermore, we set the resistance of the coupling with larger
+vessels and the renal papillae Rv =Rp = 1.
+For the transport parameters, we allow the passive transport of salt only
+in the descending and the ascending tubules, where we set ζ D
+s = ζ A
+s = 1 and
+ζ C
+s = 0 . Additionally, all the tubular segments are permeable to urea in the
+inner medulla, i.e., ζ k
+u = 10 for all k and x ∈ ( 1
+2, 1) and ζ k
+u = 0 elsewhere.
+Furthermore, for illustrating purpose, we consider a simple active transport of
+salt in the outer medulla of the form
+hA
+s =
+{
+h∗cA
+s, in (0, 1
+2 ),
+0 in [ 1
+2, 1), (70)
+where h∗ > 0 is the pump strength, which we set to be h∗ = 50 . For the
+water transport, the descending tubule will be highly permeable to water with
+ζ D
+w = 100 while the ascending tubule will be completely insulated with ζ A
+w = 0.
+We will consider two cases for the collecting tubules: without ADH, in which
+we have ζ C
+w = 0, and when there is some ADH so that ζ C
+w = 50.
+We initialize the simulation by setting the initial condition to be no axial
+solute and flow with
+αk(0,x ) = 1
+4, c k
+s (0,x ) = 1, c k
+u(0,x ) = 1
+4, p k(0,x ) = Pv =Pp = 1 (71)
+for all x ∈ (0, 1) andk = 0, D, A, C. Then, the glomerular filtration rate gradu-
+ally increases until it reaches 2.5:
+GFR(t) = min{2.5,t /8}. (72)
+4.1 Results
+8
+
+PAGE 9
+Figure 1: The pressures and volume densities without ADH
+9
+
+PAGE 10
+Figure 2: The concentration of salt and urea without ADH
+10
+
+PAGE 11
+Figure 3: The water flow without ADH
+11
+
+PAGE 12
+Figure 4: The pressures and volume densities with ADH
+12
+
+PAGE 13
+Figure 5: The concentration of salt and urea with ADH
+13
+
+PAGE 14
+Figure 6: The water flow with ADH
+14

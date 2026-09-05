@@ -64,6 +64,29 @@ def load_conv_to_third_state(path_string: str | Path = "conv_to_third_ss.npy", r
     return load_dynamic_state(path_string, row_index=row_index)
 
 
+def select_best_dynamic_row(path_string: str | Path, criterion: str = "collecting_osm"):
+    """Select the strongest finite seed row without loading the whole file.
+
+    ``collecting_osm`` uses the legacy collecting-duct outlet osmolarity. For
+    the current mapper, which keeps collecting-duct salt at the native value,
+    this is also monotonic with the mapped outlet/plasma ratio.
+    """
+    path = resolve_file(path_string)
+    data = np.load(path, mmap_mode="r")
+    if data.ndim != 2 or (data.shape[1] - 7) % 8 != 0:
+        raise ValueError(f"Expected a 2D trajectory with 8*N_dyn + 7 columns, got {data.shape}")
+    n_dyn = (data.shape[1] - 7) // 8
+    if criterion != "collecting_osm":
+        raise ValueError(f"Unknown seed criterion: {criterion}")
+    outlet_column = 5 * (n_dyn + 1) + n_dyn
+    column = np.asarray(data[:, outlet_column], dtype=float)
+    valid = np.isfinite(column)
+    if not np.any(valid):
+        raise ValueError("No finite rows available for seed selection")
+    valid_indices = np.flatnonzero(valid)
+    return int(valid_indices[np.argmax(column[valid])])
+
+
 def make_initial_condition_from_file(dyn, p: ModelParameters):
     """Map dynamic-passive profiles onto the full model without blending."""
     x_cell = np.linspace(p.dx / 2, 1 - p.dx / 2, p.N)

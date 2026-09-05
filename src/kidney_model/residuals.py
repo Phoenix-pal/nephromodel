@@ -5,7 +5,7 @@ import numpy as np
 from .constants import COMPARTMENTS, KA, KC, KD, K0, SALT, UREA
 from .parameters import ModelParameters
 from .state import geometric_state_size, pack_residual_state, unpack_state
-from .transport import DCT_junction, p_junction, solve_DCT_junction, solute_res, water_res
+from .transport import DCT_junction, JunctionSolveError, p_junction, solve_DCT_junction, solute_res, water_res
 
 
 def pressure_res(k, alpha, pressure, p: ModelParameters):
@@ -27,7 +27,10 @@ def implicit_residual(y_1, y_0, p: ModelParameters, PCT_flow=None, p_vas=None, p
     ):
         return np.ones(geometric_state_size(p)) * 1e6
 
-    dct_junc = solve_DCT_junction(alpha_1, c_1, pressure, p)
+    try:
+        dct_junc = solve_DCT_junction(alpha_1, c_1, pressure, p)
+    except JunctionSolveError:
+        return np.ones(geometric_state_size(p)) * 1e6
     r_alpha = np.zeros((4, p.N))
     r_c = np.zeros((2, 4, p.N))
     r_pressure = np.zeros((4, p.N))

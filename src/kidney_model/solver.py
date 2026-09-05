@@ -27,8 +27,9 @@ def run_model_fsolve(
     y_start=None,
     steps: int = 1000,
     print_every: int = 10,
-    xtol: float = 1e-7,
-    maxfev: int = 5000,
+    xtol: float = 1e-8,
+    maxfev: int = 8000,
+    residual_tol: float = 1e-6,
 ):
     """Run fixed-step implicit integration with ``scipy.optimize.fsolve``."""
     if steps < 0:
@@ -47,16 +48,24 @@ def run_model_fsolve(
         residual = implicit_residual(y_new, old, p)
         report = {
             "step": step, "time": step * p.dt, "success": ier == 1,
+            "solver_success": ier == 1,
             "ier": ier, "message": message, "nfev": info["nfev"],
             "residual_Linf": float(np.max(np.abs(residual))),
         }
         report.update(_summary(y_new, p))
+        report["success"] = bool(
+            ier == 1
+            and report["residual_Linf"] <= residual_tol
+            and report["alpha_min"] > 0
+            and report["salt_min"] > 0
+            and report["urea_min"] > 0
+        )
         reports.append(report)
         if step == 1 or step % print_every == 0 or step == steps or ier != 1:
             print(
                 f"step={step:05d}/{steps} "
                 f"t={step * p.dt:.5g} "
-                f"success={ier == 1} "
+                f"success={report['success']} "
                 f"Linf={report['residual_Linf']:.3e} "
                 f"salt_min={report['salt_min']:.5g} "
                 f"urea_min={report['urea_min']:.5g} "
@@ -64,7 +73,7 @@ def run_model_fsolve(
                 f"urea_max={report['urea_max']:.5g} "
                 f"nfev={report['nfev']}"
             )
-        if ier != 1 or report["alpha_min"] <= 0 or report["salt_min"] <= 0 or report["urea_min"] <= 0:
+        if not report["success"]:
             break
         y = y_new.copy()
         history.append(y.copy())
