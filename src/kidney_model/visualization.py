@@ -37,7 +37,7 @@ def plot_initial_condition(y_state, p: ModelParameters, show=False):
     plt = _plt()
     _, c, _ = unpack_state(y_state, p)
     x = np.linspace(p.dx / 2.0, 1.0 - p.dx / 2.0, p.N)
-    osm_au = (2.0 * c[SALT] + c[UREA]) / (p.c_cortex / 2.0)
+    osm_au = (2.0 * c[SALT] + c[UREA]) / p.legacy_concentration_scale
     fig, ax = plt.subplots(figsize=(9, 4))
     for k, color in ((KD, "r"), (KA, "g"), (KC, "b"), (K0, "m")):
         ax.plot(x, osm_au[k], color, label=f"full IC {COMP_NAMES[k].split('_')[0]}")
@@ -71,7 +71,7 @@ def trajectory_data(result, p: ModelParameters):
     osm = {"D_tip": [], "A_tip": [], "C_tip": [], "I_tip": [], "global_max": []}
     for y_state in history[1:]:
         _, c, _ = unpack_state(y_state, p)
-        value = (2.0 * c[SALT] + c[UREA]) / (p.c_cortex / 2.0)
+        value = (2.0 * c[SALT] + c[UREA]) / p.legacy_concentration_scale
         osm["D_tip"].append(value[KD, -1])
         osm["A_tip"].append(value[KA, -1])
         osm["C_tip"].append(value[KC, -1])
@@ -93,7 +93,7 @@ def plot_result(result, p: ModelParameters, state_index=-1, include_time=True):
     x = np.linspace(p.dx / 2.0, 1.0 - p.dx / 2.0, p.N)
     x_face = np.linspace(0.0, 1.0, p.N + 1)
     mobile_osm = 2.0 * c[SALT] + c[UREA]
-    mobile_osm_au = mobile_osm / (p.c_cortex / 2.0)
+    mobile_osm_au = mobile_osm / p.legacy_concentration_scale
     figures = []
 
     for title, ylabel, values in (
@@ -120,7 +120,7 @@ def plot_result(result, p: ModelParameters, state_index=-1, include_time=True):
 
     fig, ax = plt.subplots(figsize=(9, 4))
     ax.plot(x_face, flux[KD], label="D path: cortex to papilla")
-    ax.plot(1.0 + (1.0 - x_face[::-1]), -flux[KA, ::-1], label="A path: papilla to cortex")
+    ax.plot(1.0 + (1.0 - x_face[::-1]), flux[KA, ::-1], label="A path: papilla to cortex")
     ax.plot(2.2 + x_face, flux[KC], label="C path: cortex to papilla")
     ax.axvline(1.0, linestyle="--", linewidth=0.8, label="D-A loop tip")
     ax.set(title="Water flux along physical nephron path", xlabel="physical path coordinate", ylabel="flux along physical direction")
@@ -164,7 +164,7 @@ def animate_result(result, p: ModelParameters, frame_stride=10, gamma_label=1.3)
     times = []
     for index, y_state in enumerate(history):
         _, c, _ = unpack_state(y_state, p)
-        value = (2.0 * c[SALT] + c[UREA]) / (p.c_cortex / 2.0)
+        value = (2.0 * c[SALT] + c[UREA]) / p.legacy_concentration_scale
         osm.append(value)
         times.append(0.0 if index == 0 else reports[index - 1].get("time", index * p.dt) if index - 1 < len(reports) else index * p.dt)
     osm = np.asarray(osm)

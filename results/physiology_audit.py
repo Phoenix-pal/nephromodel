@@ -14,7 +14,7 @@ sys.path.insert(0, str(ROOT / 'src'))
 from kidney_model.parameters import build_parameters
 from kidney_model.initialization import load_dynamic_state, make_initial_condition_from_file
 from kidney_model.state import make_initial_state, unpack_state, pack_state
-from kidney_model.transport import DCT_junction, solve_DCT_junction, water_flow, solute_flow
+from kidney_model.transport import DCT_junction, dct_junction_mode, solve_DCT_junction, water_flow, solute_flow
 from kidney_model.residuals import implicit_residual
 from kidney_model.solver import run_model_positive_adaptive
 
@@ -30,16 +30,22 @@ def metrics(y, p, old=None, dt=None):
     water_in = q[0, 0] + q[1, 0] - q[2, 0] + q[3, 0] - q[3, -1]
     solute_in = f[:, 0, 0] + f[:, 1, 0] - f[:, 2, 0] + f[:, 3, 0] - f[:, 3, -1]
     ratio = (2 * c[0, 3, -1] + c[1, 3, -1]) / p.c_cortex
-    mismatch = f[:, 3, 0] - np.array([p.q, 1.0]) * f[:, 2, 0]
+    mode = dct_junction_mode(dct, a, c, pressure, p)
+    expected_fraction = np.array([p.q, 1.0]) if mode == 'forward_cortical' else np.ones(2)
+    mismatch = f[:, 3, 0] - expected_fraction * f[:, 2, 0]
     out = dict(
         urine_plasma_ratio=float(ratio), urine_flow=float(q[3, -1]),
-        urine_flow_nl_min=float(q[3, -1] * p.area_tot*p.L/p.tau*6e7),
+        urine_flow_nl_min=float(q[3, -1] * p.flow_scale_dimensional * 6e7),
         alpha_min=float(a.min()), concentration_min=float(c.min()),
         alpha_sum_error=float(np.max(np.abs(a.sum(axis=0)-1))),
-        pressure_mmhg_range=[float(pressure.min()*p.pressure),float(pressure.max()*p.pressure)],
+        pressure_mmhg_range=[float(pressure.min()*p.pressure_scale_dimensional),float(pressure.max()*p.pressure_scale_dimensional)],
         dct=dct.tolist(), dct_equation_residual=float(np.max(np.abs(DCT_junction(dct,a,c,pressure,p)))),
         actual_dct_salt_urea_flux_mismatch=mismatch.tolist(),
+        cortical_junction_mode=mode,
         cortical_water_removal=float(q[2,0]-q[3,0]),
+        cortical_water_net_into_model=float(q[3,0]-q[2,0]),
+        cortical_salt_net_into_model=float(f[0,3,0]-f[0,2,0]),
+        cortical_urea_net_into_model=float(f[1,3,0]-f[1,2,0]),
         water_cortex_tip=q[:,[0,-1]].tolist(),
         solute_cortex_tip=f[:,:,[0,-1]].tolist(),
         tubular_reverse_face_count=int((q[1:] < -1e-12).sum()),

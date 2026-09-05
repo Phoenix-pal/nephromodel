@@ -18,9 +18,14 @@ def main(argv=None):
     parser.add_argument("--xtol", type=float, default=1e-8, help="fsolve relative tolerance")
     parser.add_argument("--maxfev", type=int, default=8000, help="maximum fsolve function evaluations per step")
     parser.add_argument("--print-every", type=int, default=1)
-    parser.add_argument("--dynamic-file", help="optional legacy .npy state file, such as conv_to_third_ss.npy")
+    parser.add_argument(
+        "--dynamic-file",
+        default="conv_to_third_ss.npy",
+        help="legacy .npy initial-condition file; defaults to conv_to_third_ss.npy",
+    )
     parser.add_argument("--row-index", type=int, default=-1, help="trajectory row; default is the final row")
-    parser.add_argument("--best-seed", action="store_true", help="select the row with highest collecting-duct source osmolarity")
+    parser.add_argument("--native-initial-condition", action="store_true", help="use the uniform native plasma seed instead of a legacy .npy seed")
+    parser.add_argument("--best-seed", action="store_true", help="select the highest-osmolarity admissible source row with positive collecting outlet flow")
     parser.add_argument("--impermeable-collecting-duct", action="store_true")
     parser.add_argument("--plot", action="store_true", help="show final-state plots")
     parser.add_argument("--save-plot-dir", help="save final-state plots to this directory")
@@ -29,11 +34,13 @@ def main(argv=None):
     parser.add_argument("--frame-stride", type=int, default=10)
     parser.add_argument("--gamma-label", type=float, default=1.3)
     args = parser.parse_args(argv)
+    if args.native_initial_condition and args.best_seed:
+        parser.error("--best-seed cannot be used with --native-initial-condition")
 
     p = build_parameters(args.N, args.dt, not args.impermeable_collecting_duct)
     y_start = None
     dynamic_state = None
-    if args.dynamic_file:
+    if not args.native_initial_condition:
         selected_row = args.row_index
         if args.best_seed:
             from .initialization import select_best_dynamic_row

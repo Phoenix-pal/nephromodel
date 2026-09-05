@@ -70,7 +70,7 @@ def chemical_potential(i: int, k: int, c: np.ndarray) -> np.ndarray:
 
 def AHL_pump(c_salt: np.ndarray, p: ModelParameters) -> np.ndarray:
     pump = np.zeros(p.N)
-    mm = 0.15 / p.c_star
+    mm = p.pump_half_saturation
     for l in range(round(0.4 * p.N)):
         pump[l] = p.pump_strength / (1.0 + mm / max(c_salt[l], 1e-12))
     return pump

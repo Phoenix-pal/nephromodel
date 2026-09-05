@@ -22,6 +22,59 @@ def _summary(y, p):
     }
 
 
+def _solve_fixed_step(old, p, xtol, maxfev, residual_tol):
+    """Solve one fixed implicit step, refining a falsely-converged root.
+
+    ``fsolve`` can return ``ier=1`` from its relative-step test while the
+    absolute model residual is still just above the acceptance threshold.
+    This is common when the state contains concentrations of very different
+    magnitudes.  A second solve from that candidate with a tighter step
+    tolerance resolves the same root without changing the model equations.
+    """
+    tolerances = [float(xtol)]
+    refinement_xtol = min(float(xtol), 1e-11)
+    if refinement_xtol < tolerances[0]:
+        tolerances.append(refinement_xtol)
+
+    candidate = np.asarray(old).copy()
+    total_nfev = 0
+    last = None
+    for attempt, local_xtol in enumerate(tolerances, start=1):
+        candidate, info, ier, message = fsolve(
+            lambda value: implicit_residual(value, old, p),
+            candidate,
+            full_output=True,
+            xtol=local_xtol,
+            maxfev=maxfev,
+        )
+        total_nfev += int(info.get("nfev", 0))
+        residual = implicit_residual(candidate, old, p)
+        residual_linf = float(np.max(np.abs(residual)))
+        last = {
+            "candidate": candidate,
+            "info": info,
+            "ier": ier,
+            "message": message,
+            "residual": residual,
+            "residual_linf": residual_linf,
+            "attempts": attempt,
+            "xtol_used": local_xtol,
+            "nfev": total_nfev,
+        }
+        alpha, c, _ = unpack_state(candidate, p)
+        acceptable = bool(
+            ier == 1
+            and np.isfinite(residual_linf)
+            and residual_linf <= residual_tol
+            and np.all(np.isfinite(candidate))
+            and alpha.min() > 0
+            and c.min() > 0
+        )
+        if acceptable:
+            break
+    return last
+
+
 def run_model_fsolve(
     p: ModelParameters,
     y_start=None,
@@ -38,20 +91,19 @@ def run_model_fsolve(
     history, reports = [y.copy()], []
     for step in range(1, steps + 1):
         old = y.copy()
-        y_new, info, ier, message = fsolve(
-            lambda candidate: implicit_residual(candidate, old, p),
-            old,
-            full_output=True,
-            xtol=xtol,
-            maxfev=maxfev,
-        )
-        residual = implicit_residual(y_new, old, p)
+        solved = _solve_fixed_step(old, p, xtol, maxfev, residual_tol)
+        y_new = solved["candidate"]
+        info, ier, message = solved["info"], solved["ier"], solved["message"]
+        residual = solved["residual"]
         report = {
             "step": step, "time": step * p.dt, "success": ier == 1,
             "solver_success": ier == 1,
             "ier": ier, "message": message, "nfev": info["nfev"],
             "residual_Linf": float(np.max(np.abs(residual))),
+            "solver_attempts": solved["attempts"],
+            "xtol_used": solved["xtol_used"],
         }
+        report["nfev"] = solved["nfev"]
         report.update(_summary(y_new, p))
         report["success"] = bool(
             ier == 1

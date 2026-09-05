@@ -31,7 +31,7 @@ def plot_state(y_state, p: ModelParameters, normalize_osm_au=True):
         ax.grid(True); ax.legend(); figures.append(fig)
     if normalize_osm_au:
         fig, ax = plt.subplots(figsize=(8, 4))
-        osm = (2 * c[SALT] + c[UREA]) / (p.c_cortex / 2)
+        osm = (2 * c[SALT] + c[UREA]) / p.legacy_concentration_scale
         for k in COMPARTMENTS:
             ax.plot(x, osm[k], label=COMP_NAMES[k])
         ax.axhline(7, linestyle="--", color="gray", label="7 a.u.")

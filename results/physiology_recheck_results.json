@@ -1,0 +1,1500 @@
+[
+  {
+    "summary": {
+      "file": "dynamic_stable_v2.npy",
+      "row": 0,
+      "reached": 1.0,
+      "accepted": 22,
+      "max_step_residual": 1.2577643621058954e-08,
+      "max_junction_flux_error": 4.64406291200703e-13,
+      "max_solute_balance_error": 1.4653167568212666e-10,
+      "final": {
+        "urine_flow": 0.016683280012766727,
+        "urine_osmolarity": 979.9121077422001,
+        "urine_plasma_ratio": 3.321735958448136,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -2.2551405187698492e-17,
+        "tip_salt_flux_error": -1.0436096431476471e-14,
+        "tip_urea_flux_error": -8.743006318923108e-16,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.04040191874438413,
+        "pressure_max": 0.7638036867951091,
+        "water_balance_error": 2.688821387764051e-15,
+        "solute_balance_error": [
+          8.388845174067683e-13,
+          5.647038392453396e-12
+        ],
+        "time": 1.0,
+        "dct": [
+          108.16025508970506,
+          78.6794898205899,
+          0.7230232737590487
+        ],
+        "dct_flux_error": [
+          -7.674416657721395e-15,
+          -1.7708057242771247e-14
+        ],
+        "reverse_tubular_faces": 28,
+        "cortical_salt_net_into_model": 0.1433186706645475,
+        "cortical_water_removal": -0.0014006375902418846,
+        "inlet_urine_flow_ratio": 4.054442112196201,
+        "steady_residual_linf": 30.482003492193154
+      }
+    },
+    "states": [
+      {
+        "urine_flow": 0.00435188009906561,
+        "urine_osmolarity": 1267.6546130934414,
+        "urine_plasma_ratio": 4.297134281672683,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -5.7462715141731735e-18,
+        "tip_salt_flux_error": -2.8033131371785203e-15,
+        "tip_urea_flux_error": -3.252606517456513e-17,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.021965541345479095,
+        "pressure_max": 0.4063515935047344,
+        "water_balance_error": -1.7598769663784708e-14,
+        "solute_balance_error": [
+          2.220446049250313e-14,
+          -4.259703700881801e-12
+        ],
+        "time": 0.02,
+        "dct": [
+          108.88835058084835,
+          77.22329883830328,
+          0.372750802917961
+        ],
+        "dct_flux_error": [
+          -4.413136522884997e-15,
+          -1.0269562977782698e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.2502524612899969,
+        "cortical_water_removal": -0.002597192954891471,
+        "inlet_urine_flow_ratio": 1.0576125274752886,
+        "steady_residual_linf": 27.4108529540422
+      },
+      {
+        "urine_flow": 0.008085217093415913,
+        "urine_osmolarity": 1257.7473464332775,
+        "urine_plasma_ratio": 4.263550326892466,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 4.119968255444917e-18,
+        "tip_salt_flux_error": 1.9984014443252818e-15,
+        "tip_urea_flux_error": 2.6454533008646308e-17,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.038785642322374234,
+        "pressure_max": 0.4520421144613803,
+        "water_balance_error": 2.039514390705932e-14,
+        "solute_balance_error": [
+          -1.6553425297161084e-12,
+          1.9523938021848153e-11
+        ],
+        "time": 0.045,
+        "dct": [
+          109.26974640549363,
+          76.46050718901274,
+          0.41855742944173735
+        ],
+        "dct_flux_error": [
+          -4.6351811278100286e-15,
+          -1.0325074129013956e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.39087484461750566,
+        "cortical_water_removal": -0.0040196304469844145,
+        "inlet_urine_flow_ratio": 1.964904062313205,
+        "steady_residual_linf": 40.33512476305308
+      },
+      {
+        "urine_flow": 0.01155494067824746,
+        "urine_osmolarity": 1244.6758102966542,
+        "urine_plasma_ratio": 4.219240034903913,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -1.3010426069826053e-17,
+        "tip_salt_flux_error": -6.328271240363392e-15,
+        "tip_urea_flux_error": -9.80118763926896e-17,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.05148290300030594,
+        "pressure_max": 0.48568647999952747,
+        "water_balance_error": 1.618497003086361e-15,
+        "solute_balance_error": [
+          1.7832402221529264e-11,
+          -1.17756471240682e-10
+        ],
+        "time": 0.07625,
+        "dct": [
+          109.41691799978128,
+          76.16616400043746,
+          0.47009746245712136
+        ],
+        "dct_flux_error": [
+          -9.71445146547012e-16,
+          -4.218847493575595e-15
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.49673985923604247,
+        "cortical_water_removal": -0.0050814622627217134,
+        "inlet_urine_flow_ratio": 2.80813113811941,
+        "steady_residual_linf": 49.30772378914029
+      },
+      {
+        "urine_flow": 0.014726799078148148,
+        "urine_osmolarity": 1227.857021068308,
+        "urine_plasma_ratio": 4.162227190062061,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -8.890457814381136e-18,
+        "tip_salt_flux_error": -4.3298697960381105e-15,
+        "tip_urea_flux_error": -7.979727989493313e-17,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.06020280479047274,
+        "pressure_max": 0.5317708436124607,
+        "water_balance_error": 1.8226739562088312e-14,
+        "solute_balance_error": [
+          2.4325541581049492e-12,
+          -7.776179700158536e-11
+        ],
+        "time": 0.1153125,
+        "dct": [
+          109.48996807651109,
+          76.02006384697783,
+          0.5262068100794757
+        ],
+        "dct_flux_error": [
+          -2.4980018054066022e-15,
+          -1.1102230246251565e-16
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.5736535704588972,
+        "cortical_water_removal": -0.005841966008728293,
+        "inlet_urine_flow_ratio": 3.578969741837595,
+        "steady_residual_linf": 55.41938581272179
+      },
+      {
+        "urine_flow": 0.017476872455525913,
+        "urine_osmolarity": 1206.8236828404372,
+        "urine_plasma_ratio": 4.09092773844216,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 1.496198998029996e-17,
+        "tip_salt_flux_error": 7.216449660063518e-15,
+        "tip_urea_flux_error": 1.5785983631388945e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.06512611731835247,
+        "pressure_max": 0.5895341057614746,
+        "water_balance_error": 1.5255158247740042e-14,
+        "solute_balance_error": [
+          -1.5208001524769088e-11,
+          -1.4653167568212666e-10
+        ],
+        "time": 0.16414062499999998,
+        "dct": [
+          109.52358244909978,
+          75.95283510180046,
+          0.5840473651960872
+        ],
+        "dct_flux_error": [
+          3.6637359812630166e-15,
+          3.319566843629218e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.6179220315375283,
+        "cortical_water_removal": -0.0062646523465132616,
+        "inlet_urine_flow_ratio": 4.24730434416625,
+        "steady_residual_linf": 58.69271648958201
+      },
+      {
+        "urine_flow": 0.019395338919326485,
+        "urine_osmolarity": 1185.778522028823,
+        "urine_plasma_ratio": 4.019588210267197,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -3.7947076036992655e-17,
+        "tip_salt_flux_error": -1.8318679906315083e-14,
+        "tip_urea_flux_error": -4.614364446098307e-16,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.06681153145272052,
+        "pressure_max": 0.6365545571195503,
+        "water_balance_error": 3.309852392163748e-15,
+        "solute_balance_error": [
+          -5.007549930269306e-12,
+          -3.7474023883987684e-11
+        ],
+        "time": 0.21414062499999997,
+        "dct": [
+          109.53110347611093,
+          75.93779304777816,
+          0.6315904227742621
+        ],
+        "dct_flux_error": [
+          -1.887379141862766e-15,
+          -3.47499806707674e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.6288776711815606,
+        "cortical_water_removal": -0.006350080280172856,
+        "inlet_urine_flow_ratio": 4.713538275126881,
+        "steady_residual_linf": 59.31845444627773
+      },
+      {
+        "urine_flow": 0.02066051675677828,
+        "urine_osmolarity": 1165.530741132261,
+        "urine_plasma_ratio": 3.950951664855122,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 5.204170427930421e-18,
+        "tip_salt_flux_error": 2.4424906541753444e-15,
+        "tip_urea_flux_error": 6.938893903907228e-17,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.06671703562214944,
+        "pressure_max": 0.6731738645892723,
+        "water_balance_error": 5.793976409762536e-16,
+        "solute_balance_error": [
+          -1.3531398224131408e-12,
+          -4.0394354527961696e-12
+        ],
+        "time": 0.26414062499999996,
+        "dct": [
+          109.52373805225031,
+          75.9525238954994,
+          0.6689537661796683
+        ],
+        "dct_flux_error": [
+          2.4424906541753444e-14,
+          4.64406291200703e-13
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.6180194582330505,
+        "cortical_water_removal": -0.006217392360008924,
+        "inlet_urine_flow_ratio": 5.02100720807391,
+        "steady_residual_linf": 58.3131070967706
+      },
+      {
+        "urine_flow": 0.02144192305572761,
+        "urine_osmolarity": 1146.2551193215759,
+        "urine_plasma_ratio": 3.8856105739714435,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 1.0842021724855044e-17,
+        "tip_salt_flux_error": 5.218048215738236e-15,
+        "tip_urea_flux_error": 1.734723475976807e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.06578319127107982,
+        "pressure_max": 0.7014685126610456,
+        "water_balance_error": 1.547373340571312e-15,
+        "solute_balance_error": [
+          5.410338843603313e-12,
+          6.419753617592505e-12
+        ],
+        "time": 0.31414062499999995,
+        "dct": [
+          109.5063671871061,
+          75.98726562578781,
+          0.6976875507081329
+        ],
+        "dct_flux_error": [
+          4.052314039881821e-15,
+          1.1324274851176597e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.5936179025715049,
+        "cortical_water_removal": -0.005951244796361853,
+        "inlet_urine_flow_ratio": 5.210907911219283,
+        "steady_residual_linf": 56.3525973403499
+      },
+      {
+        "urine_flow": 0.02186129216388436,
+        "urine_osmolarity": 1128.0411391989715,
+        "urine_plasma_ratio": 3.82386826847109,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 7.37257477290143e-18,
+        "tip_salt_flux_error": 3.552713678800501e-15,
+        "tip_urea_flux_error": 1.249000902703301e-16,
+        "alpha_sum_error": 0.0,
+        "pressure_min": -0.06439296777358162,
+        "pressure_max": 0.7226031077150618,
+        "water_balance_error": 2.983724378680108e-16,
+        "solute_balance_error": [
+          3.241851231905457e-14,
+          1.0054179711005418e-12
+        ],
+        "time": 0.36414062499999994,
+        "dct": [
+          109.48113556002089,
+          76.03772887995821,
+          0.7192369164136072
+        ],
+        "dct_flux_error": [
+          -3.9968028886505635e-15,
+          -1.2323475573339238e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.5611680623583398,
+        "cortical_water_removal": -0.005607513759307895,
+        "inlet_urine_flow_ratio": 5.312824786759569,
+        "steady_residual_linf": 53.85869316162079
+      },
+      {
+        "urine_flow": 0.022008107708751026,
+        "urine_osmolarity": 1110.9221998324535,
+        "urine_plasma_ratio": 3.765837965533741,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 2.168404344971009e-17,
+        "tip_salt_flux_error": 1.0436096431476471e-14,
+        "tip_urea_flux_error": 4.163336342344337e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.06280104083557575,
+        "pressure_max": 0.7378160364242853,
+        "water_balance_error": 4.163336342344337e-17,
+        "solute_balance_error": [
+          -1.2683187833317788e-12,
+          1.7408297026122455e-13
+        ],
+        "time": 0.41414062499999993,
+        "dct": [
+          109.44890960770744,
+          76.10218078458516,
+          0.7348772343713483
+        ],
+        "dct_flux_error": [
+          6.217248937900877e-15,
+          1.2545520178264269e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.5243216288810875,
+        "cortical_water_removal": -0.005223050526770945,
+        "inlet_urine_flow_ratio": 5.348504528835283,
+        "steady_residual_linf": 51.09621207787317
+      },
+      {
+        "urine_flow": 0.021949308959574126,
+        "urine_osmolarity": 1094.8950147254618,
+        "urine_plasma_ratio": 3.711508524493091,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 2.0816681711721685e-17,
+        "tip_salt_flux_error": 9.769962616701378e-15,
+        "tip_urea_flux_error": 4.3021142204224816e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.061114808221788705,
+        "pressure_max": 0.7482140455107579,
+        "water_balance_error": -8.708311849403572e-16,
+        "solute_balance_error": [
+          3.2147617901046033e-12,
+          -2.511768570911954e-12
+        ],
+        "time": 0.4641406249999999,
+        "dct": [
+          109.4098462146841,
+          76.1803075706318,
+          0.7456982213397331
+        ],
+        "dct_flux_error": [
+          4.524158825347513e-15,
+          1.4210854715202004e-14
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.4854943800488351,
+        "cortical_water_removal": -0.004822014751305723,
+        "inlet_urine_flow_ratio": 5.334215005154997,
+        "steady_residual_linf": 48.232056664998495
+      },
+      {
+        "urine_flow": 0.02173564058660743,
+        "urine_osmolarity": 1079.9328756844834,
+        "urine_plasma_ratio": 3.6607894090999435,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 5.377642775528102e-17,
+        "tip_salt_flux_error": 2.55351295663786e-14,
+        "tip_urea_flux_error": 1.214306433183765e-15,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.059393308940822676,
+        "pressure_max": 0.754719707446843,
+        "water_balance_error": 3.400058012914542e-16,
+        "solute_balance_error": [
+          -3.0020430585864233e-13,
+          7.887024366937112e-13
+        ],
+        "time": 0.5141406249999999,
+        "dct": [
+          109.36363282537064,
+          76.27273434925874,
+          0.7526126602343511
+        ],
+        "dct_flux_error": [
+          -6.5780714209040525e-15,
+          -1.2323475573339238e-14
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.4462690113842664,
+        "cortical_water_removal": -0.004420057055803406,
+        "inlet_urine_flow_ratio": 5.282288402668095,
+        "steady_residual_linf": 45.370598957087964
+      },
+      {
+        "urine_flow": 0.021405957209265254,
+        "urine_osmolarity": 1065.994675514294,
+        "urine_plasma_ratio": 3.61354127292981,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -9.540979117872439e-18,
+        "tip_salt_flux_error": -4.440892098500626e-15,
+        "tip_urea_flux_error": -2.2898349882893854e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.057605837915082114,
+        "pressure_max": 0.7580934653591483,
+        "water_balance_error": 3.8163916471489756e-17,
+        "solute_balance_error": [
+          -3.455014052633487e-13,
+          -8.171241461241152e-14
+        ],
+        "time": 0.564140625,
+        "dct": [
+          109.30958269658109,
+          76.38083460683781,
+          0.7563756737330636
+        ],
+        "dct_flux_error": [
+          8.271161533457416e-15,
+          2.098321516541546e-14
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.40766476868098095,
+        "cortical_water_removal": -0.004027106829297694,
+        "inlet_urine_flow_ratio": 5.202167337280215,
+        "steady_residual_linf": 43.98910468823181
+      },
+      {
+        "urine_flow": 0.02099023865317528,
+        "urine_osmolarity": 1053.031028766232,
+        "urine_plasma_ratio": 3.569596707682143,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 1.5612511283791264e-17,
+        "tip_salt_flux_error": 7.327471962526033e-15,
+        "tip_urea_flux_error": 4.0939474033052647e-16,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.05580639576500379,
+        "pressure_max": 0.7589576326159421,
+        "water_balance_error": -5.238864897449957e-16,
+        "solute_balance_error": [
+          -1.9095836023552692e-14,
+          3.517186542012496e-13
+        ],
+        "time": 0.614140625,
+        "dct": [
+          109.24665300242917,
+          76.50669399514165,
+          0.7576070152124696
+        ],
+        "dct_flux_error": [
+          2.4980018054066022e-15,
+          2.3314683517128287e-15
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.3703191645569222,
+        "cortical_water_removal": -0.0036492429078444077,
+        "inlet_urine_flow_ratio": 5.101137634527352,
+        "steady_residual_linf": 42.65238348129246
+      },
+      {
+        "urine_flow": 0.02051174355121477,
+        "urine_osmolarity": 1040.9884019266133,
+        "urine_plasma_ratio": 3.528774243819028,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -5.0306980803327406e-17,
+        "tip_salt_flux_error": -2.375877272697835e-14,
+        "tip_urea_flux_error": -1.4016565685892601e-15,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.05393422719223825,
+        "pressure_max": 0.7579976462870427,
+        "water_balance_error": -1.0408340855860843e-17,
+        "solute_balance_error": [
+          5.231370892033738e-13,
+          1.5276668818842154e-13
+        ],
+        "time": 0.664140625,
+        "dct": [
+          109.17305165905219,
+          76.65389668189559,
+          0.7568129012033163
+        ],
+        "dct_flux_error": [
+          7.049916206369744e-15,
+          1.6264767310758543e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.33461066473114487,
+        "cortical_water_removal": -0.003289967879325206,
+        "inlet_urine_flow_ratio": 4.984851706916972,
+        "steady_residual_linf": 41.176448349180475
+      },
+      {
+        "urine_flow": 0.01998858074292625,
+        "urine_osmolarity": 1029.8118691544457,
+        "urine_plasma_ratio": 3.4908876920489686,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -2.7321894746634712e-17,
+        "tip_salt_flux_error": -1.2878587085651816e-14,
+        "tip_urea_flux_error": -8.049116928532385e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.052015423738912415,
+        "pressure_max": 0.7554790743348513,
+        "water_balance_error": -3.0184188481996443e-16,
+        "solute_balance_error": [
+          -8.970602038971265e-14,
+          4.192202140984591e-13
+        ],
+        "time": 0.7141406250000001,
+        "dct": [
+          109.08679932618038,
+          76.82640134763923,
+          0.7544053807224925
+        ],
+        "dct_flux_error": [
+          5.218048215738236e-15,
+          6.827871601444713e-15
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.3007445097005413,
+        "cortical_water_removal": -0.002951047254315886,
+        "inlet_urine_flow_ratio": 4.8577104421395045,
+        "steady_residual_linf": 39.61250328550173
+      },
+      {
+        "urine_flow": 0.019434882297648063,
+        "urine_osmolarity": 1019.4469186693088,
+        "urine_plasma_ratio": 3.4557522666756233,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -4.683753385137379e-17,
+        "tip_salt_flux_error": -2.19824158875781e-14,
+        "tip_urea_flux_error": -1.457167719820518e-15,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.050069136897183425,
+        "pressure_max": 0.7516868926830409,
+        "water_balance_error": -2.463307335887066e-16,
+        "solute_balance_error": [
+          -3.6415315207705135e-14,
+          1.4210854715202004e-13
+        ],
+        "time": 0.7641406250000001,
+        "dct": [
+          108.98540825922841,
+          77.02918348154317,
+          0.7507192394851714
+        ],
+        "dct_flux_error": [
+          -1.3877787807814457e-15,
+          -2.1649348980190553e-15
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.26880987447153293,
+        "cortical_water_removal": -0.002633103259733761,
+        "inlet_urine_flow_ratio": 4.723148276170011,
+        "steady_residual_linf": 38.000327736483314
+      },
+      {
+        "urine_flow": 0.018861685654322738,
+        "urine_osmolarity": 1009.8406061235335,
+        "urine_plasma_ratio": 3.4231884953340117,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 5.2909066017292616e-17,
+        "tip_salt_flux_error": 2.4868995751603507e-14,
+        "tip_urea_flux_error": 1.734723475976807e-15,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.0480440899117194,
+        "pressure_max": 0.7468930136201993,
+        "water_balance_error": 3.5246111584896767e-14,
+        "solute_balance_error": [
+          -2.389199948993337e-13,
+          6.162181875879469e-11
+        ],
+        "time": 0.8141406250000002,
+        "dct": [
+          108.86557288010074,
+          77.2688542397985,
+          0.7460262431192756
+        ],
+        "dct_flux_error": [
+          3.191891195797325e-15,
+          8.215650382226158e-15
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.23881936250872188,
+        "cortical_water_removal": -0.0023360185643986967,
+        "inlet_urine_flow_ratio": 4.583847574659919,
+        "steady_residual_linf": 36.37050727986992
+      },
+      {
+        "urine_flow": 0.018277609657774464,
+        "urine_osmolarity": 1000.9422558200606,
+        "urine_plasma_ratio": 3.3930245960002057,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -1.474514954580286e-17,
+        "tip_salt_flux_error": -6.8833827526759706e-15,
+        "tip_urea_flux_error": -5.134781488891349e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.046017767253248305,
+        "pressure_max": 0.7413179451411482,
+        "water_balance_error": 2.885885974635016e-14,
+        "solute_balance_error": [
+          1.91580085129317e-12,
+          5.101163935705699e-11
+        ],
+        "time": 0.8641406250000002,
+        "dct": [
+          108.72284794209612,
+          77.55430411580777,
+          0.7405469057198933
+        ],
+        "dct_flux_error": [
+          2.8033131371785203e-15,
+          7.438494264988549e-15
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.21073627255726302,
+        "cortical_water_removal": -0.002059209088432629,
+        "inlet_urine_flow_ratio": 4.44190292616657,
+        "steady_residual_linf": 34.74628615757836
+      },
+      {
+        "urine_flow": 0.017689372852571644,
+        "urine_osmolarity": 992.7038551341685,
+        "urine_plasma_ratio": 3.3650978140141308,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -2.168404344971009e-17,
+        "tip_salt_flux_error": -1.0103029524088925e-14,
+        "tip_urea_flux_error": -7.91033905045424e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.04397767097214639,
+        "pressure_max": 0.7351404994262787,
+        "water_balance_error": 2.4466539905176887e-14,
+        "solute_balance_error": [
+          1.2234657731369225e-12,
+          4.18367562815547e-11
+        ],
+        "time": 0.9141406250000003,
+        "dct": [
+          108.55114769662686,
+          77.89770460674629,
+          0.7344601441387462
+        ],
+        "dct_flux_error": [
+          -5.925815393936773e-15,
+          -9.631184738623233e-15
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.1844933702672899,
+        "cortical_water_removal": -0.0018018101896254877,
+        "inlet_urine_flow_ratio": 4.298947100145968,
+        "steady_residual_linf": 33.145070081124835
+      },
+      {
+        "urine_flow": 0.017102195191389086,
+        "urine_osmolarity": 985.0802407592025,
+        "urine_plasma_ratio": 3.3392550534210255,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -2.8406096919120216e-17,
+        "tip_salt_flux_error": -1.3211653993039363e-14,
+        "tip_urea_flux_error": -1.0824674490095276e-15,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.04189911692706368,
+        "pressure_max": 0.7513223567453581,
+        "water_balance_error": 2.0490553698238045e-14,
+        "solute_balance_error": [
+          1.219468970248272e-12,
+          3.374012180756836e-11
+        ],
+        "time": 0.9641406250000003,
+        "dct": [
+          108.34194439155125,
+          78.31611121689751,
+          0.7279111513513729
+        ],
+        "dct_flux_error": [
+          -7.702172233337023e-15,
+          -1.1435297153639112e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.16000577447799014,
+        "cortical_water_removal": -0.0015628030800592823,
+        "inlet_urine_flow_ratio": 4.156248671838247,
+        "steady_residual_linf": 31.579642679001356
+      },
+      {
+        "urine_flow": 0.016683280012766727,
+        "urine_osmolarity": 979.9121077422001,
+        "urine_plasma_ratio": 3.321735958448136,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -2.2551405187698492e-17,
+        "tip_salt_flux_error": -1.0436096431476471e-14,
+        "tip_urea_flux_error": -8.743006318923108e-16,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.04040191874438413,
+        "pressure_max": 0.7638036867951091,
+        "water_balance_error": 2.688821387764051e-15,
+        "solute_balance_error": [
+          8.388845174067683e-13,
+          5.647038392453396e-12
+        ],
+        "time": 1.0,
+        "dct": [
+          108.16025508970506,
+          78.6794898205899,
+          0.7230232737590487
+        ],
+        "dct_flux_error": [
+          -7.674416657721395e-15,
+          -1.7708057242771247e-14
+        ],
+        "reverse_tubular_faces": 28,
+        "cortical_salt_net_into_model": 0.1433186706645475,
+        "cortical_water_removal": -0.0014006375902418846,
+        "inlet_urine_flow_ratio": 4.054442112196201,
+        "steady_residual_linf": 30.482003492193154
+      }
+    ]
+  },
+  {
+    "summary": {
+      "file": "conv_to_third_ss.npy",
+      "row": -1,
+      "reached": 1.0,
+      "accepted": 22,
+      "max_step_residual": 1.2624709083697283e-08,
+      "max_junction_flux_error": 4.2299497238218464e-14,
+      "max_solute_balance_error": 1.7789147932489868e-10,
+      "final": {
+        "urine_flow": 0.014324756807016947,
+        "urine_osmolarity": 1206.5215516803778,
+        "urine_plasma_ratio": 4.08990356501823,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -1.9081958235744878e-17,
+        "tip_salt_flux_error": -1.176836406102666e-14,
+        "tip_urea_flux_error": -9.575673587391975e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.025424200464355635,
+        "pressure_max": 0.774091100417051,
+        "water_balance_error": 2.5847379792054426e-15,
+        "solute_balance_error": [
+          4.758970995055734e-13,
+          8.279599228444567e-12
+        ],
+        "time": 1.0,
+        "dct": [
+          107.86643026358016,
+          79.26713947283967,
+          0.717247974202337
+        ],
+        "dct_flux_error": [
+          7.771561172376096e-15,
+          1.176836406102666e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.12158253729075738,
+        "cortical_water_removal": -0.0011940147839747182,
+        "inlet_urine_flow_ratio": 3.481263708389139,
+        "steady_residual_linf": 30.009867580164922
+      }
+    },
+    "states": [
+      {
+        "urine_flow": 0.004321725757589912,
+        "urine_osmolarity": 1589.5300286893553,
+        "urine_plasma_ratio": 5.388237385387645,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 4.824699667560495e-18,
+        "tip_salt_flux_error": 3.1086244689504383e-15,
+        "tip_urea_flux_error": 2.862293735361732e-17,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.021374369903725755,
+        "pressure_max": 0.4067413860274594,
+        "water_balance_error": -1.766295443239585e-14,
+        "solute_balance_error": [
+          -2.5057733665789783e-13,
+          -3.650413304967515e-12
+        ],
+        "time": 0.02,
+        "dct": [
+          108.90681694580189,
+          77.18636610839619,
+          0.37287513008169015
+        ],
+        "dct_flux_error": [
+          3.191891195797325e-15,
+          8.992806499463768e-15
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.250607562805082,
+        "cortical_water_removal": -0.002600250686783334,
+        "inlet_urine_flow_ratio": 1.0502842903509908,
+        "steady_residual_linf": 39.06547311385985
+      },
+      {
+        "urine_flow": 0.008010512721551054,
+        "urine_osmolarity": 1576.2531477349062,
+        "urine_plasma_ratio": 5.343231009270869,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 2.656295322589486e-17,
+        "tip_salt_flux_error": 1.7319479184152442e-14,
+        "tip_urea_flux_error": 1.8561541192951836e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.03742389491169501,
+        "pressure_max": 0.4525689490840194,
+        "water_balance_error": 2.060157600070056e-14,
+        "solute_balance_error": [
+          -8.043343768804334e-12,
+          -4.742872761198669e-12
+        ],
+        "time": 0.045,
+        "dct": [
+          109.28732273323486,
+          76.42535453353028,
+          0.4188384439529608
+        ],
+        "dct_flux_error": [
+          1.9984014443252818e-15,
+          4.6629367034256575e-15
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.3911821611517101,
+        "cortical_water_removal": -0.004021873792251633,
+        "inlet_urine_flow_ratio": 1.9467490861321262,
+        "steady_residual_linf": 58.98627873715546
+      },
+      {
+        "urine_flow": 0.01140871288488038,
+        "urine_osmolarity": 1558.3078574329625,
+        "urine_plasma_ratio": 5.282399516721907,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 2.7430314963883262e-17,
+        "tip_salt_flux_error": 1.787459069646502e-14,
+        "tip_urea_flux_error": 2.3071822230491534e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.04908110027497194,
+        "pressure_max": 0.4860305650926165,
+        "water_balance_error": 1.8682971836270212e-15,
+        "solute_balance_error": [
+          2.6987301282588305e-11,
+          -1.0601119981856755e-10
+        ],
+        "time": 0.07625,
+        "dct": [
+          109.43424202791725,
+          76.13151594416551,
+          0.47056595279525876
+        ],
+        "dct_flux_error": [
+          1.5543122344752192e-15,
+          5.995204332975845e-15
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.49686294728881986,
+        "cortical_water_removal": -0.005081563132388742,
+        "inlet_urine_flow_ratio": 2.772594233928668,
+        "steady_residual_linf": 73.15113872267175
+      },
+      {
+        "urine_flow": 0.014472422935300126,
+        "urine_osmolarity": 1534.8653858056066,
+        "urine_plasma_ratio": 5.202933511205446,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -1.734723475976807e-17,
+        "tip_salt_flux_error": -1.1213252548714081e-14,
+        "tip_urea_flux_error": -1.7694179454963432e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.05642928031339447,
+        "pressure_max": 0.5324251781846416,
+        "water_balance_error": 1.7208456881689926e-14,
+        "solute_balance_error": [
+          -3.2232827518186014e-12,
+          -1.1182876846760337e-10
+        ],
+        "time": 0.1153125,
+        "dct": [
+          109.50726571439138,
+          75.98546857121724,
+          0.5268704239917792
+        ],
+        "dct_flux_error": [
+          7.494005416219807e-15,
+          1.3211653993039363e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.5734947211195774,
+        "cortical_water_removal": -0.005838987248520021,
+        "inlet_urine_flow_ratio": 3.5171501628871833,
+        "steady_residual_linf": 82.79383325140307
+      },
+      {
+        "urine_flow": 0.017068797463690537,
+        "urine_osmolarity": 1505.3368009259648,
+        "urine_plasma_ratio": 5.102836613308355,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 6.505213034913027e-19,
+        "tip_salt_flux_error": 4.440892098500626e-16,
+        "tip_urea_flux_error": 6.938893903907228e-18,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.059592415308722294,
+        "pressure_max": 0.5903228859656723,
+        "water_balance_error": 1.5969864319842486e-14,
+        "solute_balance_error": [
+          -1.7531032181494766e-11,
+          -1.7789147932489868e-10
+        ],
+        "time": 0.16414062499999998,
+        "dct": [
+          109.5408526629679,
+          75.91829467406419,
+          0.5848619588150444
+        ],
+        "dct_flux_error": [
+          -1.6653345369377348e-16,
+          2.3314683517128287e-15
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.6172516489525721,
+        "cortical_water_removal": -0.0062563574858536235,
+        "inlet_urine_flow_ratio": 4.148132213112563,
+        "steady_residual_linf": 87.79005790457302
+      },
+      {
+        "urine_flow": 0.018819201412755737,
+        "urine_osmolarity": 1475.773636614541,
+        "urine_plasma_ratio": 5.002622496998444,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -2.1250362580715887e-17,
+        "tip_salt_flux_error": -1.354472090042691e-14,
+        "tip_urea_flux_error": -3.0878077872387166e-16,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.05949439325942152,
+        "pressure_max": 0.6373662980737806,
+        "water_balance_error": 4.298644773470528e-15,
+        "solute_balance_error": [
+          -4.525713137581988e-12,
+          -4.338218673183292e-11
+        ],
+        "time": 0.21414062499999997,
+        "dct": [
+          109.54816938053057,
+          75.9036612389389,
+          0.6324495100960587
+        ],
+        "dct_flux_error": [
+          -7.549516567451064e-15,
+          3.3306690738754696e-15
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.6274281976310241,
+        "cortical_water_removal": -0.006333906536645734,
+        "inlet_urine_flow_ratio": 4.573522872444158,
+        "steady_residual_linf": 88.47654984708494
+      },
+      {
+        "urine_flow": 0.019912228305918052,
+        "urine_osmolarity": 1447.4280600078619,
+        "urine_plasma_ratio": 4.9065357966368195,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 2.168404344971009e-17,
+        "tip_salt_flux_error": 1.3988810110276972e-14,
+        "tip_urea_flux_error": 3.608224830031759e-16,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.0578238974061782,
+        "pressure_max": 0.6738949366779894,
+        "water_balance_error": 4.666406150377611e-15,
+        "solute_balance_error": [
+          1.5446310897004878e-11,
+          5.048050866207632e-11
+        ],
+        "time": 0.26414062499999996,
+        "dct": [
+          109.54030265997227,
+          75.91939468005549,
+          0.6697478598225547
+        ],
+        "dct_flux_error": [
+          -6.217248937900877e-15,
+          -4.2299497238218464e-14
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.6155136029155672,
+        "cortical_water_removal": -0.0061906927179276785,
+        "inlet_urine_flow_ratio": 4.839154946113665,
+        "steady_residual_linf": 86.52606196825228
+      },
+      {
+        "urine_flow": 0.020522276375239352,
+        "urine_osmolarity": 1420.610186458654,
+        "urine_plasma_ratio": 4.815627750707302,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -2.992397996059992e-17,
+        "tip_salt_flux_error": -1.9317880628477724e-14,
+        "tip_urea_flux_error": -5.689893001203927e-16,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.055394528775722006,
+        "pressure_max": 0.7020472124867226,
+        "water_balance_error": 5.48172618408671e-16,
+        "solute_balance_error": [
+          -1.0595968547022494e-12,
+          -1.4637180356658064e-12
+        ],
+        "time": 0.31414062499999995,
+        "dct": [
+          109.52202381904222,
+          75.95595236191555,
+          0.6983153699189765
+        ],
+        "dct_flux_error": [
+          8.770761894538737e-15,
+          1.1879386363489175e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.5898096975535629,
+        "cortical_water_removal": -0.005911697548376615,
+        "inlet_urine_flow_ratio": 4.987411438891316,
+        "steady_residual_linf": 83.04318759817258
+      },
+      {
+        "urine_flow": 0.02077471484557883,
+        "urine_osmolarity": 1395.4767255915267,
+        "urine_plasma_ratio": 4.730429578276362,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 4.640385298237959e-17,
+        "tip_salt_flux_error": 2.9753977059954195e-14,
+        "tip_urea_flux_error": 9.922618282587337e-16,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.05276356910138717,
+        "pressure_max": 0.7229091459747645,
+        "water_balance_error": 1.1102230246251565e-16,
+        "solute_balance_error": [
+          -5.284661597215745e-13,
+          -8.846257060213247e-13
+        ],
+        "time": 0.36414062499999994,
+        "dct": [
+          109.49535548755912,
+          76.00928902488171,
+          0.7196090509998938
+        ],
+        "dct_flux_error": [
+          -1.942890293094024e-15,
+          -8.881784197001252e-15
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.5558695374230647,
+        "cortical_water_removal": -0.0055533847101857875,
+        "inlet_urine_flow_ratio": 5.048760116375572,
+        "steady_residual_linf": 78.72279835785737
+      },
+      {
+        "urine_flow": 0.020761661256421787,
+        "urine_osmolarity": 1372.0841347062476,
+        "urine_plasma_ratio": 4.651132660021179,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -1.734723475976807e-18,
+        "tip_salt_flux_error": -1.1102230246251565e-15,
+        "tip_urea_flux_error": -3.469446951953614e-17,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.05018983474420489,
+        "pressure_max": 0.7377722535546706,
+        "water_balance_error": -5.724587470723463e-16,
+        "solute_balance_error": [
+          4.282352250584154e-12,
+          -8.917311333789257e-13
+        ],
+        "time": 0.41414062499999993,
+        "dct": [
+          109.46101343184256,
+          76.07797313631488,
+          0.7349176292927011
+        ],
+        "dct_flux_error": [
+          -1.6653345369377348e-15,
+          -6.994405055138486e-15
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.5174099230714391,
+        "cortical_water_removal": -0.005153256853435874,
+        "inlet_urine_flow_ratio": 5.045587777270006,
+        "steady_residual_linf": 74.00361876197084
+      },
+      {
+        "urine_flow": 0.020551885755376507,
+        "urine_osmolarity": 1350.4242823929696,
+        "urine_plasma_ratio": 4.577709431840575,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -1.734723475976807e-18,
+        "tip_salt_flux_error": -1.1102230246251565e-15,
+        "tip_urea_flux_error": -4.85722573273506e-17,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.04774838121797874,
+        "pressure_max": 0.7477574287452251,
+        "water_balance_error": -6.938893903907228e-17,
+        "solute_balance_error": [
+          -1.3145040611561853e-13,
+          7.567280135845067e-13
+        ],
+        "time": 0.4641406249999999,
+        "dct": [
+          109.41896059712418,
+          76.16207880575165,
+          0.7453444196269041
+        ],
+        "dct_flux_error": [
+          -9.43689570931383e-16,
+          -5.440092820663267e-15
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.4769079403882832,
+        "cortical_water_removal": -0.004736080049139481,
+        "inlet_urine_flow_ratio": 4.994607237178717,
+        "steady_residual_linf": 69.16148747437022
+      },
+      {
+        "urine_flow": 0.020197324887079864,
+        "urine_osmolarity": 1330.4484666675717,
+        "urine_plasma_ratio": 4.509994802262955,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -5.204170427930421e-17,
+        "tip_salt_flux_error": -3.3084646133829665e-14,
+        "tip_urea_flux_error": -1.4710455076283324e-15,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.04541868552714175,
+        "pressure_max": 0.7538008647002378,
+        "water_balance_error": -5.620504062164855e-16,
+        "solute_balance_error": [
+          1.0702549957386509e-13,
+          1.7763568394002505e-13
+        ],
+        "time": 0.5141406249999999,
+        "dct": [
+          109.36862951658371,
+          76.26274096683255,
+          0.7518153491957399
+        ],
+        "dct_flux_error": [
+          3.3029134982598407e-15,
+          4.163336342344337e-15
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.4359989943961645,
+        "cortical_water_removal": -0.004318019910695351,
+        "inlet_urine_flow_ratio": 4.908440337464831,
+        "steady_residual_linf": 64.36759337357626
+      },
+      {
+        "urine_flow": 0.019737535205567272,
+        "urine_osmolarity": 1312.0835815635928,
+        "urine_plasma_ratio": 4.447740954452857,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -9.974659986866641e-18,
+        "tip_salt_flux_error": -6.217248937900877e-15,
+        "tip_urea_flux_error": -3.0531133177191805e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.04322691569408996,
+        "pressure_max": 0.7566755775452769,
+        "water_balance_error": -3.122502256758253e-17,
+        "solute_balance_error": [
+          3.7347902548390266e-13,
+          2.5579538487363607e-13
+        ],
+        "time": 0.564140625,
+        "dct": [
+          109.30899329867691,
+          76.38201340264617,
+          0.7550977231723855
+        ],
+        "dct_flux_error": [
+          -4.524158825347513e-15,
+          -1.404432126150823e-14
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.39574501905207515,
+        "cortical_water_removal": -0.003909416885823013,
+        "inlet_urine_flow_ratio": 4.796700281189843,
+        "steady_residual_linf": 59.72551615575071
+      },
+      {
+        "urine_flow": 0.019202816131280217,
+        "urine_osmolarity": 1295.2429635034919,
+        "urine_plasma_ratio": 4.390654113571159,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 7.41594285980085e-17,
+        "tip_salt_flux_error": 4.6851411639181606e-14,
+        "tip_urea_flux_error": 2.42861286636753e-15,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.04107975268905714,
+        "pressure_max": 0.7570757469167682,
+        "water_balance_error": -3.434752482434078e-16,
+        "solute_balance_error": [
+          -8.126832540256146e-14,
+          5.506706202140776e-13
+        ],
+        "time": 0.614140625,
+        "dct": [
+          109.23843675347294,
+          76.52312649305411,
+          0.755822294575007
+        ],
+        "dct_flux_error": [
+          7.827072323607354e-15,
+          2.0039525594484076e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.356816569981958,
+        "cortical_water_removal": -0.0035166677657197452,
+        "inlet_urine_flow_ratio": 4.666750563189248,
+        "steady_residual_linf": 55.29504555593114
+      },
+      {
+        "urine_flow": 0.01861645546377857,
+        "urine_osmolarity": 1279.8336095879802,
+        "urine_plasma_ratio": 4.338419015552475,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -3.122502256758253e-17,
+        "tip_salt_flux_error": -1.9761969838327786e-14,
+        "tip_urea_flux_error": -1.096345236817342e-15,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.03894327036589626,
+        "pressure_max": 0.7556369328366053,
+        "water_balance_error": 2.983724378680108e-16,
+        "solute_balance_error": [
+          1.0365042157900461e-12,
+          5.9685589803848416e-12
+        ],
+        "time": 0.664140625,
+        "dct": [
+          109.15455502080786,
+          76.69088995838426,
+          0.7545048565182789
+        ],
+        "dct_flux_error": [
+          -4.579669976578771e-15,
+          -5.2735593669694936e-15
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.3196173860275904,
+        "cortical_water_removal": -0.0031435054153873153,
+        "inlet_urine_flow_ratio": 4.524250684182548,
+        "steady_residual_linf": 51.10757804372577
+      },
+      {
+        "urine_flow": 0.017996373799323555,
+        "urine_osmolarity": 1265.7609194596916,
+        "urine_plasma_ratio": 4.290714981219294,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -8.673617379884035e-18,
+        "tip_salt_flux_error": -5.551115123125783e-15,
+        "tip_urea_flux_error": -3.3306690738754696e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.036859218034589865,
+        "pressure_max": 0.752581221388084,
+        "water_balance_error": 6.938893903907228e-18,
+        "solute_balance_error": [
+          3.6770586575585185e-13,
+          -1.2860823517257813e-12
+        ],
+        "time": 0.7141406250000001,
+        "dct": [
+          109.05458585763282,
+          76.89082828473434,
+          0.7515656160498818
+        ],
+        "dct_flux_error": [
+          5.6066262743570405e-15,
+          1.3489209749195652e-14
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.2843712676351069,
+        "cortical_water_removal": -0.0027918557812388403,
+        "inlet_urine_flow_ratio": 4.373555784172283,
+        "steady_residual_linf": 47.17615434272545
+      },
+      {
+        "urine_flow": 0.017356360403262345,
+        "urine_osmolarity": 1252.9317399509873,
+        "urine_plasma_ratio": 4.247226237121991,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 2.0816681711721685e-17,
+        "tip_salt_flux_error": 1.3100631690576847e-14,
+        "tip_urea_flux_error": 8.187894806610529e-16,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.03478706250564328,
+        "pressure_max": 0.7482506608762325,
+        "water_balance_error": -2.255140518769849e-16,
+        "solute_balance_error": [
+          -2.851052727237402e-13,
+          3.304023721284466e-13
+        ],
+        "time": 0.7641406250000001,
+        "dct": [
+          108.9347858485614,
+          77.13042830287719,
+          0.7473461853176369
+        ],
+        "dct_flux_error": [
+          8.326672684688674e-16,
+          3.83026943495679e-15
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.25118019285461557,
+        "cortical_water_removal": -0.0024624499213951275,
+        "inlet_urine_flow_ratio": 4.2180169894403985,
+        "steady_residual_linf": 43.50214292881456
+      },
+      {
+        "urine_flow": 0.01670700447915406,
+        "urine_osmolarity": 1241.256254503352,
+        "urine_plasma_ratio": 4.207648320350346,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 8.673617379884035e-18,
+        "tip_salt_flux_error": 5.329070518200751e-15,
+        "tip_urea_flux_error": 3.7470027081099033e-16,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.03269741425218262,
+        "pressure_max": 0.7429227506839725,
+        "water_balance_error": 1.8388068845354155e-16,
+        "solute_balance_error": [
+          -8.43769498715119e-14,
+          9.592326932761353e-13
+        ],
+        "time": 0.8141406250000002,
+        "dct": [
+          108.79001981673275,
+          77.41996036653448,
+          0.7421238727147044
+        ],
+        "dct_flux_error": [
+          -6.744604874597826e-15,
+          -1.607047828144914e-14
+        ],
+        "reverse_tubular_faces": 30,
+        "cortical_salt_net_into_model": 0.2200651449299777,
+        "cortical_water_removal": -0.002155235684786738,
+        "inlet_urine_flow_ratio": 4.060207733557023,
+        "steady_residual_linf": 40.079651013278756
+      },
+      {
+        "urine_flow": 0.016056406516238596,
+        "urine_osmolarity": 1230.649086970263,
+        "urine_plasma_ratio": 4.17169182023818,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -1.1492543028346347e-17,
+        "tip_salt_flux_error": -7.105427357601002e-15,
+        "tip_urea_flux_error": -5.134781488891349e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.03071764753220639,
+        "pressure_max": 0.7368223913789415,
+        "water_balance_error": 2.877212357255132e-14,
+        "solute_balance_error": [
+          3.552713678800501e-14,
+          7.911360455636895e-11
+        ],
+        "time": 0.8641406250000002,
+        "dct": [
+          108.61310131038968,
+          77.77379737922068,
+          0.7361235521654892
+        ],
+        "dct_flux_error": [
+          -6.827871601444713e-15,
+          -1.4960255256823984e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.19099430049866986,
+        "cortical_water_removal": -0.0018696598794178728,
+        "inlet_urine_flow_ratio": 3.902096632086871,
+        "steady_residual_linf": 36.89842785206989
+      },
+      {
+        "urine_flow": 0.015410726136609884,
+        "urine_osmolarity": 1221.0298776042118,
+        "urine_plasma_ratio": 4.139084330861735,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 1.691355389077387e-17,
+        "tip_salt_flux_error": 1.0436096431476471e-14,
+        "tip_urea_flux_error": 7.91033905045424e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.0287206768703422,
+        "pressure_max": 0.7432896835847936,
+        "water_balance_error": 3.1624008967057193e-14,
+        "solute_balance_error": [
+          1.3922196728799463e-12,
+          6.193978663304733e-11
+        ],
+        "time": 0.9141406250000003,
+        "dct": [
+          108.39370204666092,
+          78.21259590667819,
+          0.7295274380998295
+        ],
+        "dct_flux_error": [
+          -2.761679773755077e-15,
+          -1.0380585280245214e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.16390273054169152,
+        "cortical_water_removal": -0.001604863621301998,
+        "inlet_urine_flow_ratio": 3.7451806227540434,
+        "steady_residual_linf": 33.94581429244395
+      },
+      {
+        "urine_flow": 0.014774606749634345,
+        "urine_osmolarity": 1212.3235056349154,
+        "urine_plasma_ratio": 4.109571205542086,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": 8.239936510889834e-17,
+        "tip_salt_flux_error": 5.084821452783217e-14,
+        "tip_urea_flux_error": 3.9968028886505635e-15,
+        "alpha_sum_error": 1.1102230246251565e-16,
+        "pressure_min": -0.026750428732380826,
+        "pressure_max": 0.7612726801442825,
+        "water_balance_error": 2.2379667563576788e-14,
+        "solute_balance_error": [
+          2.419842104472991e-12,
+          4.979128220838902e-11
+        ],
+        "time": 0.9641406250000003,
+        "dct": [
+          108.11646670659107,
+          78.76706658681786,
+          0.7224831461943501
+        ],
+        "dct_flux_error": [
+          8.28503932126523e-15,
+          1.8818280267396403e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.13870594833407185,
+        "cortical_water_removal": -0.0013598150148131094,
+        "inlet_urine_flow_ratio": 3.590588166776297,
+        "steady_residual_linf": 31.207990816876997
+      },
+      {
+        "urine_flow": 0.014324756807016947,
+        "urine_osmolarity": 1206.5215516803778,
+        "urine_plasma_ratio": 4.08990356501823,
+        "urine_flow_positive": true,
+        "tip_water_flux_error": -1.9081958235744878e-17,
+        "tip_salt_flux_error": -1.176836406102666e-14,
+        "tip_urea_flux_error": -9.575673587391975e-16,
+        "alpha_sum_error": 2.220446049250313e-16,
+        "pressure_min": -0.025424200464355635,
+        "pressure_max": 0.774091100417051,
+        "water_balance_error": 2.5847379792054426e-15,
+        "solute_balance_error": [
+          4.758970995055734e-13,
+          8.279599228444567e-12
+        ],
+        "time": 1.0,
+        "dct": [
+          107.86643026358016,
+          79.26713947283967,
+          0.717247974202337
+        ],
+        "dct_flux_error": [
+          7.771561172376096e-15,
+          1.176836406102666e-14
+        ],
+        "reverse_tubular_faces": 29,
+        "cortical_salt_net_into_model": 0.12158253729075738,
+        "cortical_water_removal": -0.0011940147839747182,
+        "inlet_urine_flow_ratio": 3.481263708389139,
+        "steady_residual_linf": 30.009867580164922
+      }
+    ]
+  }
+]

@@ -65,11 +65,12 @@ def load_conv_to_third_state(path_string: str | Path = "conv_to_third_ss.npy", r
 
 
 def select_best_dynamic_row(path_string: str | Path, criterion: str = "collecting_osm"):
-    """Select the strongest finite seed row without loading the whole file.
+    """Select an admissible high-osmolarity legacy source row.
 
-    ``collecting_osm`` uses the legacy collecting-duct outlet osmolarity. For
-    the current mapper, which keeps collecting-duct salt at the native value,
-    this is also monotonic with the mapped outlet/plasma ratio.
+    A selected source row must be finite, have non-negative stored solutes,
+    and have positive collecting-duct outlet flow.  It is still only a seed:
+    the full-model mapper regenerates volume fractions and pressures and does
+    not transfer the legacy flow profiles.
     """
     path = resolve_file(path_string)
     data = np.load(path, mmap_mode="r")
@@ -78,11 +79,21 @@ def select_best_dynamic_row(path_string: str | Path, criterion: str = "collectin
     n_dyn = (data.shape[1] - 7) // 8
     if criterion != "collecting_osm":
         raise ValueError(f"Unknown seed criterion: {criterion}")
-    outlet_column = 5 * (n_dyn + 1) + n_dyn
-    column = np.asarray(data[:, outlet_column], dtype=float)
-    valid = np.isfinite(column)
+    length = n_dyn + 1
+    collecting_osm_outlet_column = 6 * length - 1
+    collecting_flow_outlet_column = 2 * length - 1
+    solute_columns = np.r_[
+        np.arange(3 * length, 6 * length),
+        np.arange(6 * length, 8 * n_dyn + 6),
+    ]
+    column = np.asarray(data[:, collecting_osm_outlet_column], dtype=float)
+    valid = (
+        np.isfinite(data).all(axis=1)
+        & (np.min(data[:, solute_columns], axis=1) >= 0.0)
+        & (data[:, collecting_flow_outlet_column] > 0.0)
+    )
     if not np.any(valid):
-        raise ValueError("No finite rows available for seed selection")
+        raise ValueError("No finite, non-negative source row with positive collecting outlet flow")
     valid_indices = np.flatnonzero(valid)
     return int(valid_indices[np.argmax(column[valid])])
 
@@ -93,7 +104,9 @@ def make_initial_condition_from_file(dyn, p: ModelParameters):
     face_to_cell = lambda values: np.interp(x_cell, dyn["x_face_dyn"], values)
     cell_to_cell = lambda values: np.interp(x_cell, dyn["x_cell_dyn"], values)
     alpha, c, pressure = unpack_state(make_initial_state(p), p)
-    scale = p.c_cortex / 2.0
+    # The legacy trajectory stores concentrations normalized by 147.5 mmol/L.
+    # Convert that source convention explicitly into the solver's c/c_star.
+    scale = p.legacy_concentration_scale
     c[SALT, KD] = np.maximum(face_to_cell(dyn["s_D"]) * scale, 1e-8)
     c[SALT, KA] = np.maximum(face_to_cell(dyn["s_A"]) * scale, 1e-8)
     c[UREA, KC] = np.maximum(face_to_cell(dyn["u_C"]) * scale, 1e-8)

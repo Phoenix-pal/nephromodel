@@ -5,7 +5,7 @@ import numpy as np
 from .constants import KA, KC, KD, K0, SALT, UREA
 from .parameters import ModelParameters
 from .state import unpack_state
-from .transport import DCT_junction, solve_DCT_junction, solute_flow, water_flow
+from .transport import DCT_junction, dct_junction_mode, solve_DCT_junction, solute_flow, water_flow
 
 
 def continuity_and_mass(y_state, p: ModelParameters):
@@ -56,6 +56,10 @@ def physiology_metrics(y_state, p: ModelParameters, previous_state=None, dt=None
         "alpha_sum_error": float(np.max(np.abs(alpha.sum(axis=0) - 1.0))),
         "pressure_min": float(pressure.min()),
         "pressure_max": float(pressure.max()),
+        "cortical_junction_mode": dct_junction_mode(dct, alpha, c, pressure, p),
+        "cortical_water_net_into_model": float(water[KC, 0] - water[KA, 0]),
+        "cortical_salt_net_into_model": float(solute[SALT, KC, 0] - solute[SALT, KA, 0]),
+        "cortical_urea_net_into_model": float(solute[UREA, KC, 0] - solute[UREA, KA, 0]),
     }
     if previous_state is not None:
         if dt is None or dt <= 0:

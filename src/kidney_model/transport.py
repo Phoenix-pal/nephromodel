@@ -54,16 +54,38 @@ def _dct_boundary_fluxes(y, alpha, c, pressure, p):
     c_face = c_junction if q_c >= 0.0 else c_c
     f_a = q_a * a_face
     f_c = q_c * c_face + 2.0 * p.D[:, KC] * alpha[KC, 0] * (c_junction - c_c) / p.dx
-    return f_a, f_c
+    return f_a, f_c, q_a, q_c
+
+
+def dct_junction_mode(y, alpha, c, pressure, p):
+    """Return the physiological closure active at the cortical A-C junction.
+
+    Positive A and C flows both represent A-to-C delivery through the omitted
+    cortical segment.  Only in that direction can the reduced fixed-fraction
+    salt-reabsorption law and cortical-osmolality condition be applied.  When
+    either flow is reversed, the omitted segment is treated as a closed
+    connection: it cannot supply or remove water or solute.
+    """
+    _, _, q_a, q_c = _dct_boundary_fluxes(y, alpha, c, pressure, p)
+    return "forward_cortical" if q_a >= 0.0 and q_c >= 0.0 else "closed_reverse"
 
 
 def DCT_junction(y, alpha, c, pressure, p):
-    c_s, c_u, p_ac = y
-    f_a, f_c = _dct_boundary_fluxes(y, alpha, c, pressure, p)
+    c_s, c_u, _ = y
+    f_a, f_c, q_a, q_c = _dct_boundary_fluxes(y, alpha, c, pressure, p)
+    if q_a >= 0.0 and q_c >= 0.0:
+        return np.array([
+            f_c[SALT] - p.q * f_a[SALT],
+            f_c[UREA] - f_a[UREA],
+            2.0 * c_s + c_u - p.c_cortex,
+        ])
+    # Reverse transport is not a reversible version of cortical NaCl
+    # reabsorption.  Close the reduced A-C connection instead, preventing an
+    # unmodelled cortical reservoir from supplying salt or water.
     return np.array([
-        f_c[SALT] - p.q * f_a[SALT],
+        q_c - q_a,
+        f_c[SALT] - f_a[SALT],
         f_c[UREA] - f_a[UREA],
-        2.0 * c_s + c_u - p.c_cortex,
     ])
 
 
